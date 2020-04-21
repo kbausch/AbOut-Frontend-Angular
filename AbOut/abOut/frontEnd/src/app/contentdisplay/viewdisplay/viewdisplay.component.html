@@ -1,0 +1,23 @@
+<!--OutcomeDetails will show details about the specific outcome-->
+<div id="OutcomeDetails">
+    <h1>{{outcome.prefix}} - {{outcome.identifier}}</h1>
+    <p>{{outcome.text}}</p>
+    <button type="button" class=" btn btn-danger btn-sm" (click)="deleteOutcome()">Delete</button>
+    <button class="btn btn-secondary btn-sm" type="button" (click)="updateOutcomeClicked()">Update</button> <br>
+    <form *ngIf="updateOutcomeVisible" [formGroup]="updateForm" (ngSubmit)="updateOutcome(updateForm.value)">
+        <label class="text-dark" for="newTextInput">Enter the updated outcome description:</label>
+        <input class="form-control" type="text" formControlName="newTextInput" />
+        <button type="submit" class="btn btn-secondary btn-sm mt-3">Submit</button>
+    </form>
+    <button class="btn btn-secondary btn-sm" type="button" (click)="assocOutcomeVisible = true; getPrograms();">Associate Outcome</button> <br>
+    <div *ngIf="assocOutcomeVisible" >
+        <label>What program should this outcome be associated with?</label>
+        <div *ngFor="let program of programsList" class="no_border">
+            <button class="btn btn-secondary btn-sm" (click) = "associateOutcome(program.abbrev)">
+                {{program.abbrev}}
+                {{program.name}}
+                {{program.currentSemester}}
+            </button>
+        </div>
+    </div>
+</div>

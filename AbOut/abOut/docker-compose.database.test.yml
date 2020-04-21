@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mysql:
+    build: ./docker/mariadb/
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: assessment
+      MYSQL_USER: web_user
+      MYSQL_PASSWORD: resu_bew
+    ports:
+      - "3306:3306"
+    network_mode: host
+    restart: always
+  database_test:
+    build:
+      context: .
+      dockerfile: ./docker/database/Dockerfile.test
+    env_file:
+      - ./webService/.env
+    network_mode: host
+    depends_on:
+      - mysql
+    command: ["./sql-wait.sh", "./test.sh"]

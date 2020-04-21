@@ -1,0 +1,46 @@
+<!--Introbar is the title header of AbOut and the login button-->
+<style>
+
+</style>
+
+<div id="Introbar" class="m-0 p-0 w-100" *ngIf="!authenticated">
+  <div class="row align-center border-bottom-style-solid AbOut_logo_box">
+    <h1 class="row justify-content-center AbOut_logo_text font-weight-bolder w-100">
+      {{ title }}
+    </h1>
+  </div>
+  <div class="row justify-content-center AbOut_login_pos" *ngIf="!inProduction">
+    <form class="border p-4" [formGroup]="loginForm" (ngSubmit)="onFakeLogin(loginForm.value)">
+      <label class="text-dark" for="usernameCAS">CAS Username</label>
+      <input class="form-control" type="text" formControlName="usernameCAS" />
+      <button type="submit" class="btn btn-secondary mt-3">Login</button>
+    </form>
+  </div>
+  <div class="row AbOut_login_pos" *ngIf="inProduction">
+    <form class="p-4" [formGroup]="loginForm" (ngSubmit)="onCasLogin(loginForm.value)">
+      <button type="submit" class="btn btn-secondary mt-3">Login</button>
+    </form>
+  </div>
+</div>
+
+<!--MainSystem will open up the rest of AbOut and its components-->
+<div id="MainSystem" class="h-100" *ngIf="authenticated">
+  <div class="p-3 position-absolute" style="right: 0;">
+    <button class="btn btn-secondary" (click)="onLogout()">Logout</button>
+  </div>
+
+  <app-topnavbar></app-topnavbar>
+
+  <div class="row h-100 w-100">
+    <!--This div exists to load a dark green sidebar 'background' at all times. The functional sidebar, with buttons
+    will be layed over this 'background'-->
+    <div class="col-md-2 col-sm-12 bg_sidebar position-fixed"> </div>
+    <div class="col-md-2 col-sm-12 side_bar_border">
+      <router-outlet name="sidebar"></router-outlet>
+    </div>
+    <div class="col text-center">
+      <router-outlet ></router-outlet>
+      <app-toasts class="w-100 d-flex justify-content-center" aria-live="polite" aria-atomic="true"></app-toasts>
+    </div>
+  </div>
+</div>

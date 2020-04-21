@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile:  ./docker/webservice/Dockerfile.deploy
+    env_file:
+      - ./webService/.env
+    ports:
+      - "8080:8080"
+    network_mode: host
+    depends_on:
+      - mysql
+    command: ["./docker/webservice/script/sql-wait.sh", "./docker/webservice/script/init.sh"]
+  mysql:
+    build: ./docker/mariadb/
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: assessment
+      MYSQL_USER: web_user
+      MYSQL_PASSWORD: resu_bew
+    ports:
+      - "3306:3306"
+    network_mode: host
+    restart: always

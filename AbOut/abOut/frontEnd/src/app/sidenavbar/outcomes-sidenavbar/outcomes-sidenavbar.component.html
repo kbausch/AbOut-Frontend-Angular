@@ -1,0 +1,18 @@
+<!--OutcomesList is the list of outcomes when its created in the sidebar-->
+<ul id="OutcomesList" class="no_border sidebar_css">
+    <h3 class="text-center text-light">Outcomes<h5 class="text-light">{{currentDate.toLocaleDateString()}}</h5>
+    </h3>
+    <div>
+        <button class=" btn navbar_buttons text-light unique_button_color" 
+           [routerLink] = "['/createoutcomedisplay']" >
+           Create Outcome
+        </button>
+    </div>
+    <div *ngFor="let outcome of outcomeList" class="no_border">
+        <button class="btn navbar_buttons text-light"
+            [routerLink]="['/viewdisplay']" [queryParams]="{prefix: outcome.prefix, identifier: outcome.identifier}">
+            {{outcome.prefix}}
+            {{outcome.identifier}}
+        </button>
+    </div>
+</ul>

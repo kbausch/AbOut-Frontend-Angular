@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConnectorMySQL", "UnitTester\UnitTester.csproj", "{95537729-0070-4174-9FA4-AE01EC394A44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99FDE532-1D04-4B0A-8EEF-EBFB660ECB23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99FDE532-1D04-4B0A-8EEF-EBFB660ECB23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FDE532-1D04-4B0A-8EEF-EBFB660ECB23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99FDE532-1D04-4B0A-8EEF-EBFB660ECB23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95537729-0070-4174-9FA4-AE01EC394A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95537729-0070-4174-9FA4-AE01EC394A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95537729-0070-4174-9FA4-AE01EC394A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95537729-0070-4174-9FA4-AE01EC394A44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D65F854-58E0-407F-B33C-A99FA111D62D}
+	EndGlobalSection
+EndGlobal

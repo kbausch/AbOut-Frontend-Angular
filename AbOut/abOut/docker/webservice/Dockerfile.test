@@ -1,0 +1,18 @@
+FROM golang:1.13-alpine
+
+RUN set -ex; \
+    apk update; \
+    apk add --no-cache git bash mysql-client
+
+WORKDIR ./abOut
+
+COPY ./webService/go.mod ./webService/go.sum ./
+RUN go mod download
+
+COPY . .
+
+RUN chmod +x ./docker/webservice/script/*
+
+EXPOSE 8080
+
+CMD CGO_ENABLED=0 go test ./webService/... -cover

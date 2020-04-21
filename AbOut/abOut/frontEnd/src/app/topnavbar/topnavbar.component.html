@@ -1,0 +1,16 @@
+<!--Title below contains the Title in the header-->
+<div id="Title" class="row align-center row_top_border">
+    <h3 class="font-weight-bolder text-center w-100 title_font_properties">AbOut</h3>
+</div>
+
+
+<!--Below is the navbar-->
+<nav id="Navbar" class="navbar nav_css text-align-center">
+    <div class="container">
+        <button class=" col-6 nav-item btn btn-secondary button_css outline-none" [routerLink]="[{ outlets: { primary: ['generaldisplay'],sidebar: ['outcomes-sidebar'] } }]" [queryParams]="{type: 'outcomes'}">
+            Outcomes
+        </button>
+        <button class=" col-6 nav-item btn btn-secondary button_css outline-none" [routerLink]="[{ outlets: { primary: ['generaldisplay'],sidebar: ['programs-sidebar'] } }]" [queryParams]="{type: 'programs'}"> Programs
+        </button>
+    </div>
+</nav>

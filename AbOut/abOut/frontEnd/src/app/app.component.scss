@@ -1,0 +1,51 @@
+app-root {
+    display: block;
+}
+
+.side_bar_border{
+    margin:0px;
+    padding:0px;
+    height:100%;
+    background-color: rgb(21,53,30);
+
+}
+
+//bg_sidebar defines the css for the dark green sidebar. This acts as a 'background' sidebar, that sticks around at all points.
+//The functional sidebar, with buttons, is loaded over this element.
+.bg_sidebar{
+    background-color: rgb(21,53,30);
+    z-index: -10;
+    height:100%;
+    width: 100%;
+}
+
+//AbOut_logo_box defines the css for the top area of the page, that holds the AbOut logo within it, on the starting login screen. 
+.AbOut_logo_box{
+    //position:absolute;
+    //top:0%;
+    width:100%;
+    height: 100px;
+    background-color: rgb(33,85,48);
+    margin-left: 0px;
+    border-width:3px;
+    border-color:rgb(147, 81, 36);
+    padding:0px;
+    z-index:-3;
+}
+
+//AbOut_logo_text defines the css for the AbOut logo that appears on the login screen. 
+.AbOut_logo_text{
+    font-size: 85px;
+    font-family: "Century-Gothic";
+    color: rgb(240,240,240);
+    letter-spacing:1px;
+    text-shadow: 4px 3px rgba(147,81,36,0.5);
+   
+    
+}
+
+// AbOut_login_pos describes the position of the login form.
+.AbOut_login_pos {
+    padding: 2em;
+    
+}

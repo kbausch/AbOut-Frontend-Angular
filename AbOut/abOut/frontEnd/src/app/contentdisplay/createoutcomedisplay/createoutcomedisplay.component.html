@@ -1,0 +1,25 @@
+<!--This file contains the form that the create outcome page -->
+<h1>Create Outcome</h1>
+<div>
+    
+    <div class = "form-group">
+        <label for = "Prefix">Prefix</label>
+        <input id = "Prefix" type="text" class = "form-control" name="Prefix" [(ngModel)] = "outcomeModel.Prefix">
+    </div>
+
+    <div class = "form-group">
+        <label for = "Identifier">Identifier</label>
+        <input id = "Identifier" type="text" class = "form-control" name = "Identifier" [(ngModel)] = "outcomeModel.Identifier">
+    </div>
+
+    <div class = "form-group">
+        <label for = "Description">Description</label>
+        <input id = "Description" type="text" class = "form-control" name = "Description" [(ngModel)] = "outcomeModel.Description">
+    </div>
+
+    <!--This is the submit button that sends the content of the above forms to the createOutcome function -->
+    <button class="btn btn-primary" type ="submit" (click) = "createOutcome(outcomeModel.Prefix,outcomeModel.Identifier,outcomeModel.Description)">
+        Submit
+    </button>
+    
+</div>

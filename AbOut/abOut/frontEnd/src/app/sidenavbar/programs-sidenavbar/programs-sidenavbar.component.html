@@ -1,0 +1,13 @@
+<!--ProgramsList is the list of programs when its created in the sidebar-->
+<ul id="ProgramsList" class="no_border sidebar_css">
+    <h3 class="text-center text-light">Programs <h5 class="text-light">{{currentDate.toLocaleDateString()}}</h5>
+    </h3>
+    <div *ngFor="let program of programsList" class="no_border">
+        <button class="btn navbar_buttons text-light"
+        [routerLink]="['/viewprogramdisplay']" [queryParams]="{abbrev: program.abbrev}">
+            {{program.abbrev}}
+            {{program.name}}
+            {{program.currentSemester}}
+        </button>
+    </div>
+</ul>

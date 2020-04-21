@@ -1,0 +1,23 @@
+# Build environment
+FROM golang:1.13-alpine AS build-env
+
+RUN apk update && \
+    apk add bash ca-certificates git gcc g++ libc-dev
+
+WORKDIR /abOut
+
+COPY . .
+
+RUN cd webService/; go mod download; go build -ldflags '-w -s' -a -o build
+
+# Deployment environment
+FROM alpine
+
+WORKDIR /abOut
+RUN apk update && apk add --no-cache bash mysql-client
+COPY --from=build-env /abOut /abOut
+#COPY --from=build-env ./docker/ ./docker/
+
+RUN chmod +x ./docker/webservice/script/*
+
+EXPOSE 8080

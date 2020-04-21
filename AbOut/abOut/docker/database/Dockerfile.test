@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0
+
+RUN apt-get update; apt-get install mariadb-client mariadb-server -y
+
+WORKDIR ./abOut
+
+COPY ./database/AbOut_Database_Testing/UnitTester/*.csproj ./
+RUN dotnet restore
+
+COPY ./database/*.sql ./
+COPY ./database/*.sh ./
+COPY ./database/AbOut_Database_Testing/UnitTester/ ./
+COPY ./docker/database/script/* ./
+
+RUN chmod +x ./*.sh

@@ -1,0 +1,28 @@
+image: dolphindalt/docker-w-compose:latest
+
+stages:
+  - test
+
+webservice_test:
+  stage: test
+  tags:
+    - esof326
+  script:
+    - cd abOut/
+    - make webservice_test
+
+frontend_test:
+  stage: test
+  tags:
+    - esof326
+  script:
+    - cd abOut/
+    - make frontend_test
+
+database_test:
+  stage: test
+  tags:
+    - esof326
+  script:
+    - cd abOut/
+    - make database_test

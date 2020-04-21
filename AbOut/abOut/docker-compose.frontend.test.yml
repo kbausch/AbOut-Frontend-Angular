@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  frontend_test:
+    build:
+      context: .
+      dockerfile: ./docker/frontend/Dockerfile.test
+    ports:
+      - "4200:4200"
+    network_mode: host
